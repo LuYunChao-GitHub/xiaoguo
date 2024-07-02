@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>判读鼠标进入方向</title>
+    <style>
+        :root {
+            --left: 0;
+            --left-v: 200%;
+            --left-s: -100%;
+            --top: 0;
+            --top-v: 200%;
+            --top-s: -100%;
+            --s: 0.5s
+        }
+
+        html,
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .direction {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background-color: antiquewhite;
+            position: relative;
+            overflow: hidden;
+
+            &>.content {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                position: absolute;
+
+            }
+
+            .wu {
+                top: var(--top-s);
+                left: var(--left-s);
+            }
+
+            .top {
+                top: var(--top);
+                left: var(--left);
+                transition: var(--s) top;
+            }
+
+            .top1 {
+                top: var(--top-s);
+                left: var(--top);
+                transition: var(--s) top;
+            }
+
+            .left {
+                top: var(--top);
+                left: var(--left);
+                transition: var(--s) left;
+            }
+
+            .left1 {
+                left: var(--left-s);
+                top: var(--top);
+                transition: var(--s) left;
+            }
+
+            .right {
+                top: var(--top);
+                left: var(--left);
+                animation: a var(--s) linear;
+            }
+
+            .right1 {
+                top: var(--top);
+                left: var(--left-v);
+                animation: a1 var(--s) linear;
+            }
+
+            .bottom {
+                top: var(--top);
+                left: var(--left);
+                animation: b var(--s) linear;
+            }
+
+            .bottom1 {
+                top: var(--top-v);
+                left: var(--left);
+                animation: b1 var(--s) linear;
+            }
+
+        }
+
+        @keyframes a {
+            0% {
+                left: 200%;
+                top: 0;
+            }
+
+            100% {
+                left: 0;
+                top: 0;
+            }
+        }
+
+        @keyframes a1 {
+            0% {
+                left: 0;
+                top: 0;
+            }
+
+            100% {
+                left: 200%;
+                top: 0;
+            }
+        }
+
+        @keyframes b {
+            0% {
+                left: 0;
+                top: 200%;
+            }
+
+            100% {
+                left: 0;
+                top: 0;
+            }
+        }
+
+        @keyframes b1 {
+            0% {
+                left: 0;
+                top: 0;
+            }
+
+            100% {
+                left: 0;
+                top: 200%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="direction">
+        <div class="content wu">
+            
+        </div>
+    </div>
+</body>
+<script src="./index.js"></script>
+
+</html>

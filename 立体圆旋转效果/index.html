@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立体圆滚动效果</title>
+    <style>
+        html,
+        body,
+        div {
+            padding: 0;
+            margin: 0;
+
+        }
+
+        html,
+        body {
+            background-color: #000;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        body {
+            position: relative;
+
+        }
+
+        .box {
+            /* position: absolute; */
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item {
+            position: absolute;
+            background-color: transparent;
+            width: 200px;
+            aspect-ratio: 1;
+
+            border-radius: 50%;
+            /* transform: rotateX(70deg) translateY(var(--i) * 10px); */
+            /* transform: rotateX(-70deg) translateY(10px); */
+        }
+
+        .item:nth-child(1) {
+            border: 1px solid rgb(0, 200, 255);
+            border-top: transparent;
+            border-left: transparent;
+            transform: rotateX(-70deg) translateY(10px);
+            animation: move 3s ease-in-out infinite;
+        }
+
+        .item:nth-child(2) {
+            transform: rotateX(-70deg) translateY(60px);
+            border: 1px solid rgb(26, 214, 76);
+            border-top: transparent;
+            border-left: transparent;
+            animation: move1 3s ease-in-out 0.08s infinite;
+        }
+
+        .item:nth-child(3) {
+            transform: rotateX(-70deg) translateY(110px);
+            border: 1px solid rgb(179, 214, 26);
+            border-top: transparent;
+            border-left: transparent;
+            animation: move2 3s ease-in-out 0.16s infinite;
+        }
+
+        @keyframes move {
+
+            0%,
+            100% {
+                transform: rotateX(-70deg) translateY(10px);
+                filter: hue-rotate(0deg);
+            }
+
+            50% {
+                transform: rotateX(-70deg) translateY(110px);
+                filter: hue-rotate(180deg);
+            }
+        }
+
+        @keyframes move1 {
+
+            0%,
+            100% {
+                transform: rotateX(-70deg) translateY(60px);
+                filter: hue-rotate(0deg);
+            }
+
+            25% {
+                transform: rotateX(-70deg) translateY(10px);
+                filter: hue-rotate(60deg);
+            }
+
+            50% {
+                transform: rotateX(-70deg) translateY(60px);
+                filter: hue-rotate(90deg);
+            }
+
+            75% {
+                transform: rotateX(-70deg) translateY(110px);
+                filter: hue-rotate(180deg);
+            }
+        }
+
+        @keyframes move2 {
+
+            0%,
+            100% {
+                transform: rotateX(-70deg) translateY(110px);
+                filter: hue-rotate(0deg);
+            }
+
+            50% {
+                transform: rotateX(-70deg) translateY(10px);
+                filter: hue-rotate(180deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="item" style="--i:0"></div>
+        <div class="item" style="--i:1"></div>
+        <div class="item" style="--i:2"></div>
+    </div>
+</body>
+
+</html>
