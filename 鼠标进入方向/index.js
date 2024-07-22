@@ -47,3 +47,6 @@ function isdirection() {
     }
 }
 isdirection()
+for(let i in {a:1,b:2}){
+    console.log(i);
+}
